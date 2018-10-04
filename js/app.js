@@ -125,7 +125,7 @@ function war(){
         }
 
         //TESTING PURPOSES
-        console.log('i = ' + warCounter);
+        console.log('warCounter = ' + warCounter);
 
         WarArray.push(playerHand.shift(), compHand.shift());
                 
@@ -234,7 +234,8 @@ function init(){
     deck = shuffleDeck(deck);
     dealCards();
     
-    // OLD STUFF THAT WILL BE DELETED ONCE CODE IS FINISHED
+    // OLD STUFF THAT WILL BE DELETED ONCE CODE IS FINISHED 
+    // Uncommenting below function will cause the game to simulate until completion in the console.
     //playGame();
 };
 
