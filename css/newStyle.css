@@ -1,0 +1,142 @@
+:root {
+  --lightgreen: #648644;
+  --darkgreen: #2f5320;
+  --lightergreen: #72994E;
+  --white: #E8F0F2;
+  --black: #2d2f37;
+  --red: #d45745;
+}
+
+html,
+body {
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  background-image: radial-gradient(circle, var(--lightgreen), var(--darkgreen));
+}
+
+.container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 3fr 1fr 3fr;
+  padding: 0 20px;
+}
+
+header {
+  grid-column: span 3;
+  text-align: center;
+}
+
+.area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  height: 300px;
+  width: 200px;
+}
+
+.playing__card {
+  align-items: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.red {
+  color: var(--red);
+}
+
+.card__symbol {
+  width: 50%;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 2.5px;
+}
+
+.number:first-child {
+  align-self: flex-start;
+}
+
+.number:last-child {
+  align-self: flex-end;
+  transform: rotateZ(180deg);
+}
+
+.deck {
+  background-image: url("../assets/imgs/deck.png");
+  background-size: cover;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.deck img {
+  border-radius: 10px;
+  height: 300px;
+  width: 200px;
+  transition: all 100ms;
+}
+
+.player__deck {
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.player__deck img:hover {
+  box-shadow: -5px 10px 2px rgba(0, 0, 0, .4);
+  cursor: pointer;
+  transform: translate(10px, -15px);
+}
+
+.player__deck img:active {
+  transform: translate(0px, 0px);
+}
+
+.winner {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
