@@ -39,6 +39,35 @@ header {
   flex-direction: column;
 }
 
+.area h2 {
+  margin: 0 0 25px 0;
+}
+
+.area p {
+  margin-bottom: 20px;
+}
+
+.controls {
+  justify-content: space-between;
+}
+
+button {
+  justify-self: flex-start;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--lightergreen);
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+  padding: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .cards {
   display: flex;
   justify-content: space-around;
@@ -107,36 +136,5 @@ header {
 }
 
 .player__deck img:active {
-  transform: translate(0px, 0px);
-}
-
-.winner {
-  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-@keyframes shake {
-
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+  transform: translate(10px, -15px) rotateZ(10deg);
 }

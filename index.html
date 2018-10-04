@@ -16,7 +16,8 @@
       </header>
       <div id='playerArea' class="area">
         <h2>Player</h2>
-        <!-- <p id="playerCard">0</p> -->
+        <p>Cards Remaining: <span id="playerCards"></span></p>
+        <p>Rounds Won: <span id="playerWins">0</span></p>
         <div class="cards">
           <div class="card deck player__deck">
             <img id="player__deck" src="./assets/imgs/deck.png" alt="">
@@ -28,14 +29,14 @@
           </div>
         </div>
       </div>
-      <div id="centerArea" class="area">
+      <div id="centerArea" class="area controls">
         <h4 id="roundResult">Click your deck to start!</h4>
-        <!-- <input type="button" id="btn-nxt" value="Next Card"> -->
-        <input type="button" id="btn-new" value="New Game">
+        <button type="button" id="newGameButton">New Game</button>
       </div>
       <div id="compArea" class="area">
         <h2>Computer</h2>
-        <!-- <p id="compCard">0</p> -->
+        <p>Cards Remaining: <span id="compCards"></span></p>
+        <p>Rounds Won: <span id="compWins">0</span></p>
         <div class="cards">
           <div id="comp__card" class="card playing__card">
             <span class="number comp__number">10</span>
