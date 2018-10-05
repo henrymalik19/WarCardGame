@@ -1,2 +1,2 @@
-# WarCardGame	## Welcome to GitHub Pages
+# WarCardGame
 The "I Declare War!" Card Game written in JavaScript
