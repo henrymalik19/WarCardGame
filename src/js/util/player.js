@@ -3,6 +3,7 @@ const Player = function () {
     this.roundCards = []; //Card (or cards) currently in play
     this.hand = []; //Cards not in play
     this.winPile = []; //Cards that have been won
+    this.wins = 0;
 };
 
 Player.prototype.refillHand = function () {
@@ -38,6 +39,7 @@ Player.prototype.reset = function () {
     this.roundCards = []; //Card (or cards) currently in play
     this.hand = []; //Cards not in play
     this.winPile = []; //Cards that have been won
+    this.wins = 0;
 };
 
 export { Player };

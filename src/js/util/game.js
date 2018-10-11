@@ -21,11 +21,11 @@ const Game = function () {
 
         if (playerCard.value > compCard.value) {
 
-            this.results.winner = 'player';
+            this.results.winner = 'Player';
             this.results.war = false
             this.results.cardsPlayed = player.roundCards.concat(comp.roundCards);
             return {
-                winner: 'player',
+                winner: 'Player',
                 war: false,
                 cardsPlayed: player.roundCards.concat(comp.roundCards)
             };
@@ -33,11 +33,11 @@ const Game = function () {
         }
         else if (playerCard.value < compCard.value) {
 
-            this.results.winner = 'comp';
+            this.results.winner = 'Computer';
             this.results.war = false
             this.results.cardsPlayed = player.roundCards.concat(comp.roundCards);
             return {
-                winner: 'comp',
+                winner: 'Computer',
                 war: false,
                 cardsPlayed: player.roundCards.concat(comp.roundCards)
             };
@@ -60,20 +60,20 @@ const Game = function () {
 
         if (player.playing === false) {
             this.gamePlaying = false;
-            this.results.winner = 'comp';
+            this.results.winner = 'Computer';
             this.results.war = false;
             return {
-                winner: 'comp',
+                winner: 'Computer',
                 war: false
             };
         };
 
         if (comp.playing === false) {
             this.gamePlaying = false;
-            this.results.winner = 'player';
+            this.results.winner = 'Player';
             this.results.war = false;
             return {
-                winner: 'player',
+                winner: 'Player',
                 war: false
             };
         };

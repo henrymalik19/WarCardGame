@@ -11,12 +11,12 @@ const Deck = function () {
 
   this.fill = () => {
 
-    let suits = ['spades', 'clubs', 'hearts', 'diamonds'];
+    let suits = ['spade', 'club', 'heart', 'diamond'];
     
     suits.forEach(suit => {
       for (let i = 2; i <= 14; i++) {
         let symbol = i;
-
+        
         switch (symbol) {
           case 11:
             symbol = "J";
