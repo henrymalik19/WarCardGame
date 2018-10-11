@@ -4,19 +4,28 @@ import { Player } from './util/player.js';
 
 // Game Setup
 const game = new Game();
-const deck = new Deck();
-const player = new Player();
-const comp = new Player();
+let deck = new Deck();
+let player = new Player();
+let comp = new Player();
 
-deck.fill();
-deck.shuffle();
+function init() {
 
-[player.hand, comp.hand] = deck.deal();
+    game.gamePlaying = true;
+    player.reset();
+    comp.reset();
+    deck.fill();
+    deck.shuffle();
 
+    console.log(game, deck, player);
+
+    [player.hand, comp.hand] = deck.deal();
+
+    console.log(game, deck, player);
+};
 
 // Gameplay Starts Here
 document.getElementById("player__deck").addEventListener("click", () => {
-//while(true) { Uncomment to simulate a full game
+while(true) { //Uncomment to simulate a full game
     if(game.gamePlaying === true) {
 
         player.nextCard();
@@ -56,7 +65,16 @@ document.getElementById("player__deck").addEventListener("click", () => {
     }
     else {
         console.log(`${game.results.winner} won the game!`);
-        //break; Uncomment to simulate a full game
+        break; //Uncomment to simulate a full game
     };
-//}; Uncomment to simulate a full game
+}; //Uncomment to simulate a full game
 });
+
+document.getElementById("newGameButton").addEventListener("click", () => {
+    document.getElementById("roundResult").innerText =
+        "Click your deck to start!";
+    init();
+});
+
+
+window.onload = init();

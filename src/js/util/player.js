@@ -33,4 +33,11 @@ Player.prototype.nextCard = function (numOfCards = 1) {
     return this.roundCards;
 };
 
+Player.prototype.reset = function () {
+    this.playing = true;
+    this.roundCards = []; //Card (or cards) currently in play
+    this.hand = []; //Cards not in play
+    this.winPile = []; //Cards that have been won
+};
+
 export { Player };
