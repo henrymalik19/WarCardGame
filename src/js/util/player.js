@@ -1,8 +1,8 @@
 const Player = function () {
     this.playing = true;
-    this.roundCards = [];
-    this.hand = [];
-    this.winPile = [];
+    this.roundCards = []; //Card (or cards) currently in play
+    this.hand = []; //Cards not in play
+    this.winPile = []; //Cards that have been won
 };
 
 Player.prototype.refillHand = function () {

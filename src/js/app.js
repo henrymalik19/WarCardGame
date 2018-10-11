@@ -3,11 +3,10 @@ import { Deck } from './util/deck.js';
 import { Player } from './util/player.js';
 
 // Game Setup
-let game = new Game();
-let deck = new Deck();
-let player = new Player();
-let comp = new Player();
-let results;
+const game = new Game();
+const deck = new Deck();
+const player = new Player();
+const comp = new Player();
 
 deck.fill();
 deck.shuffle();
@@ -17,44 +16,47 @@ deck.shuffle();
 
 // Gameplay Starts Here
 document.getElementById("player__deck").addEventListener("click", () => {
+//while(true) { Uncomment to simulate a full game
+    if(game.gamePlaying === true) {
 
-    //results = game.compareCards(player.nextCard(), comp.nextCard());
-    game.compareCards(player.nextCard(), comp.nextCard());
+        player.nextCard();
+        comp.nextCard();
 
-    while (game.results.war === true) {
-        game.results = game.compareCards(player.nextCard(4), comp.nextCard(4));
-    };
+        let results = game.compareCards(player, comp);
 
-    if (game.gamePlaying === true) {
-        switch (game.results.winner) {
+        while (results.war === true) {
+            player.nextCard(4);
+            comp.nextCard(4)
+            results = game.compareCards(player, comp);
+        };
+
+        switch (results.winner) {
             case 'player':
-                player.winPile.push.apply(player.winPile, game.results.cardsPlayed);
+                player.winPile.push.apply(player.winPile, results.cardsPlayed);
                 break;
             case 'comp':
-                comp.winPile.push.apply(comp.winPile, game.results.cardsPlayed);
+                comp.winPile.push.apply(comp.winPile, results.cardsPlayed);
                 break;
         };
+
         player.roundCards = [];
         comp.roundCards = [];
 
         player.refillHand();
         comp.refillHand();
 
-        console.log(JSON.parse(JSON.stringify(game.results)));
+        game.checkWinner(player, comp);
+        
+        console.log('End of Round');
+        console.log(`Game Status = ${game.gamePlaying}`);
+        console.log(JSON.parse(JSON.stringify(results)));
         console.log(JSON.parse(JSON.stringify(player)));
         console.log(JSON.parse(JSON.stringify(comp)));
 
     }
     else {
         console.log(`${game.results.winner} won the game!`);
+        //break; Uncomment to simulate a full game
     };
+//}; Uncomment to simulate a full game
 });
-
-/*
-Individual cards need to be changed into obect
-propeties
-    card.suit (spades)
-    card.symbol (2,3,4... J,Q,K,A)
-    card.value (2 - 14)
-
-*/

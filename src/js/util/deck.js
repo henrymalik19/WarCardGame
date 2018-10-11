@@ -3,10 +3,41 @@ const Deck = function () {
   this.cards = [];
 
   // Methods of Deck Object
-  this.fill = () => {
+/*   this.fill = () => {
       for (let i = 2; this.cards.length < 52; i++) {
           this.cards.push(i);
       };
+  }; */
+
+  this.fill = () => {
+
+    let suits = ['spades', 'clubs', 'hearts', 'diamonds'];
+    
+    suits.forEach(suit => {
+      for (let i = 2; i <= 14; i++) {
+        let symbol = i;
+
+        switch (symbol) {
+          case 11:
+            symbol = "J";
+            break;
+          case 12:
+            symbol = "Q";
+            break;
+          case 13:
+            symbol = "K";
+            break;
+          case 14:
+            symbol = "A";
+            break;
+          default:
+            symbol = i;
+            break;
+          }
+        let card = { suit: suit, value: i, symbol: symbol};
+        this.cards.push(card);
+      };
+    });
   };
 
   this.shuffle = () => {
